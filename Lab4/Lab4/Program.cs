@@ -4,6 +4,17 @@ namespace ConsoleApp1
 {
     class Program
     {
+        static int[] Kopiowanie(int[] tablica) // Funkcja kopiujaca tablice
+        {
+            int[] nowaTablica = new int[tablica.Length];
+            for (int i = 0; i < tablica.Length; i++)
+            {
+                nowaTablica[i] = tablica[i];
+            }
+
+            return nowaTablica;
+        }
+
         static void Main(string[] args)
         {
             int[][] tablica =
@@ -14,16 +25,14 @@ namespace ConsoleApp1
             };
             int[][] nowaTablica = new int[tablica.Length][];
 
+            // Kopiowanie
             for (int i = 0; i < tablica.GetLength(0); i++)
             {
-                nowaTablica[i] = new int[tablica[i].GetLength(0)];
-
-                for (int j = 0; j < tablica[i].GetLength(0); j++)
-                {
-                    nowaTablica[i][j] = tablica[i][j];
-                }
+                nowaTablica[i] = Kopiowanie(tablica[i]);
             }
 
+
+            // Wypisywanie tablicy
             for (int i = 0; i < tablica.GetLength(0); i++)
             {
                 foreach (var item in tablica[i])
@@ -32,7 +41,10 @@ namespace ConsoleApp1
                 }
                 Console.WriteLine();
             }
+
             Console.WriteLine("skopiowana: ");
+            
+            // Wypisywanie skopiowanej tablicy
             for (int i = 0; i < nowaTablica.GetLength(0); i++)
             {
                 foreach (var item in nowaTablica[i])
