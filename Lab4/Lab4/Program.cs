@@ -6,23 +6,35 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int[] tablica = { 1, 2, 3, 4, 5 };
-            int[] nowaTablica = new int[tablica.Length];
+            int[,] tablica =
+                {
+                    { 1, 2, 3, 4, 5 },
+                    { 1, 2, 3, 4, 5 },
+                    { 1, 2, 3, 4, 5 },
+                    { 1, 2, 3, 4, 5 },
+                    { 1, 2, 3, 4, 5 }
+                };
 
-            for (int i = 0; i < tablica.Length; i++)
+
+            int[,] nowaTablica = new int[tablica.GetLength(0), tablica.GetLength(1)];
+
+            for (int i = 0; i < tablica.GetLength(0); i++)
             {
-                nowaTablica[i] = tablica[i];
+                for (int j = 0; j < tablica.GetLength(1); j++)
+                {
+                nowaTablica[i,j] = tablica[i,j];
+                }
             }
-            nowaTablica[3] = 10;
+            nowaTablica[3,3] = 10;
 
             foreach (var liczba in tablica)
             {
-                Console.WriteLine(liczba + " ");
+                Console.Write(liczba + " ");
             }
-
+            Console.WriteLine();
             foreach (var liczba in nowaTablica)
             {
-                Console.WriteLine(liczba + " ");
+                Console.Write(liczba + " ");
             }
 
         }
