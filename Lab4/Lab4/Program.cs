@@ -6,36 +6,74 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int[,] tablica =
-                {
-                    { 1, 2, 3, 4, 5 },
-                    { 1, 2, 3, 4, 5 },
-                    { 1, 2, 3, 4, 5 },
-                    { 1, 2, 3, 4, 5 },
-                    { 1, 2, 3, 4, 5 }
-                };
-
-
-            int[,] nowaTablica = new int[tablica.GetLength(0), tablica.GetLength(1)];
+            int[][] tablica =
+            {
+                new[] {1, 3, 7, 3 },
+                new[] {2 },
+                new[] {12, 5, 8, 3, 1, 4, 6, 3 }
+            };
+            int[][] nowaTablica = new int[tablica.Length][];
 
             for (int i = 0; i < tablica.GetLength(0); i++)
             {
-                for (int j = 0; j < tablica.GetLength(1); j++)
+                nowaTablica[i] = new int[tablica[i].GetLength(0)];
+
+                for (int j = 0; j < tablica[i].GetLength(0); j++)
                 {
-                nowaTablica[i,j] = tablica[i,j];
+                    nowaTablica[i][j] = tablica[i][j];
                 }
             }
-            nowaTablica[3,3] = 10;
 
-            foreach (var liczba in tablica)
+            for (int i = 0; i < tablica.GetLength(0); i++)
             {
-                Console.Write(liczba + " ");
+                foreach (var item in tablica[i])
+                {
+                    Console.Write(item);
+                }
+                Console.WriteLine();
             }
-            Console.WriteLine();
-            foreach (var liczba in nowaTablica)
+            Console.WriteLine("skopiowana: ");
+            for (int i = 0; i < nowaTablica.GetLength(0); i++)
             {
-                Console.Write(liczba + " ");
+                foreach (var item in nowaTablica[i])
+                {
+                    Console.Write(item);
+                }
+                Console.WriteLine();
             }
+
+
+
+            //int[,] tablica =
+            //    {
+            //        { 1, 2, 3, 4, 5 },
+            //        { 1, 2, 3, 4, 5 },
+            //        { 1, 2, 3, 4, 5 },
+            //        { 1, 2, 3, 4, 5 },
+            //        { 1, 2, 3, 4, 5 }
+            //    };
+
+
+            //int[,] nowaTablica = new int[tablica.GetLength(0), tablica.GetLength(1)];
+
+            //for (int i = 0; i < tablica.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < tablica.GetLength(1); j++)
+            //    {
+            //    nowaTablica[i,j] = tablica[i,j];
+            //    }
+            //}
+            //nowaTablica[3,3] = 10;
+
+            //foreach (var liczba in tablica)
+            //{
+            //    Console.Write(liczba + " ");
+            //}
+            //Console.WriteLine();
+            //foreach (var liczba in nowaTablica)
+            //{
+            //    Console.Write(liczba + " ");
+            //}
 
         }
     }
